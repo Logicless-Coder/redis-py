@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "redis-py"
+version = "0.1.0"
+description = ""
+authors = ["Abhishek Rathore <abhirathore565@gmail.com>"]
+readme = "README.md"
+package-mode = false
+packages = [ { include = "redis_py" } ]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+rich = "^13.7.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
