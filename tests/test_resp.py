@@ -42,6 +42,24 @@ class TestRESPDeserialization:
         raw = "*1\r\n$4\r\nping\r\n"
         command = self.resp.deserialize(raw)
 
-        assert type(command) is list[str]
+        assert isinstance(command, list)
         assert len(command) == 1
         assert command[0] == "ping"
+
+    def test_array_double_string(self):
+        raw = "*2\r\n$4\r\necho\r\n$11\r\nhello world\r\n"
+        command = self.resp.deserialize(raw)
+
+        assert isinstance(command, list)
+        assert len(command) == 2
+        assert command[0] == "echo"
+        assert command[1] == "hello world"
+
+    def test_array_double_string_2(self):
+        raw = "*2\r\n$3\r\nget\r\n$3\r\nkey\r\n"
+        command = self.resp.deserialize(raw)
+
+        assert isinstance(command, list)
+        assert len(command) == 2
+        assert command[0] == "get"
+        assert command[1] == "key"
