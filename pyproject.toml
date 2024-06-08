@@ -9,6 +9,7 @@ packages = [ { include = "redis_py" } ]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pytest = "^8.2.2"
 
 
 [tool.poetry.group.dev.dependencies]
